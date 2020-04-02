@@ -1,5 +1,6 @@
-\documentclass{article}
+\documentclass[12pt]{article}
 
+\usepackage{extsizes}
 \usepackage{color}
 \usepackage[normalem]{ulem}
 \usepackage{times}
@@ -12,21 +13,26 @@
 \usepackage[utf8]{inputenc}
 \usepackage[noend]{algpseudocode}
 
+\definecolor{purple}{rgb}{0.5, 0.0, 0.5}
+\newenvironment{todo}{{\bf NEEDS WORK:} \sf \begingroup\color{purple}}{\endgroup}%
+
 \usepackage{scribe}
 
 \Lecturer{Jure Leskovec}
 \LectureTitle{Placeholder}
-\NoteAuthors{Helathy Birds}
-\LectureTitle{Placeholder Title}
-\SectionNumber{0}
+\NoteAuthors{The Healthy Birds Trio}
+\LectureTitle{Preliminaries}
+\SectionNumber{1}
 
 \lstset{style=mystyle}
 
 \begin{document}
+\setstretch{1.1}
+
 \setcounter{section}{-1}
 
 \MakeScribeTop
 
-\input{notes/nc0_placeholder}
+\input{notes/n0c_preliminaries}
 
 \end{document}
