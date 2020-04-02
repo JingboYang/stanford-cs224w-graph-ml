@@ -1,20 +1,61 @@
-\documentclass{report}
+\documentclass[12pt]{article}
+
+\usepackage[ruled,vlined]{algorithm2e}
+\usepackage{extsizes}
+\usepackage{setspace}
 \usepackage{graphicx}
+\usepackage{subcaption} 
+\usepackage{color}
+\usepackage[normalem]{ulem}
+\usepackage{times}
+\usepackage{fullpage}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{algorithm}
+\usepackage[utf8]{inputenc}
+\usepackage[noend]{algpseudocode}
+
+\definecolor{purple}{rgb}{0.5, 0.0, 0.5}
+\newenvironment{todo}{{\bf NEEDS WORK:} \sf \begingroup\color{purple}}{\endgroup}%
+
+\usepackage{hyperref}
 
 \begin{document}
+\setstretch{1.1}
 
-\title{CS224W Notes}
-\author{Healthy Birds}
+\title{
+Notes for Stanford CS224W \\
+\textbf{Machine Learning with Graphs}
+}
+
+\author{
+  Written by\\
+  The Healthy Birds Trio
+  \and
+  Lecturer\\
+  Jure Leskovec
+}
 
 \maketitle
 
+\setcounter{tocdepth}{2}
+% \setcounter{secnumdepth}{2}
 \tableofcontents
 
 \newpage
 
-\include{notes/n0c_placeholder}
+\setcounter{section}{-1}
+
+\include{notes/n0c_preliminaries}
 
 \include{notes/n1c_intro}
 
+\include{notes/n2c_structure}
+
+\include{notes/n3c_traditional_app}
+
+\include{notes/n4c_gnn}
 
 \end{document}
