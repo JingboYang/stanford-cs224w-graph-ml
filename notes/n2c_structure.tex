@@ -1,3 +1,109 @@
 \section{Structure of a Graph}\label{s_2}
+\subsection{Network Properties}\label{ss_21_network_properties}
+\subsubsection{Degree Distribution}
+For undirected graphs with $N$ nodes, let $N_k$ be the number of nodes with degree $k$. Plot normalized ($P(k) = \frac{N_k}{N}$) histogram of degree. It is common to plot with log-log scale.
+
+\noindent For directed graphs, plot in-degree and out-degree distributions separately.
+
+\subsubsection{Path Length}
+
+\textbf{Path}: 
+\begin{itemize}
+    \item sequence of nodes in which each
+node is linked to the next one
+    \item can intersect itself
+and pass through the
+same edge multiple times
+    \item follow the direction of arrows in directed graphs
+\end{itemize}
+
+\noindent \textbf{Distance}: number of edges along the shortest path between two nodes
+
+\noindent \textbf{Diameter}: the maximum distance between any pair of nodes in a graph
+
+\noindent \textbf{Average Path Length}: 
+for a connected undirected graph (strongly connected directed graph):
+\begin{itemize}
+    \item Definition: $\bar{h} =  \frac{1}{2E_{max}}\sum_{i, j \neq i} h_{ij}$
+    \item If the graph is not connected, we compute average only over the connected pairs (ignoring infinite length paths)
+    \item We can also apply the measure to a (strongly) connected component of a graph
+\end{itemize}
+\subsubsection{Clustering Coefficient (for undirected graph)}
+
+\noindent \textbf{Clustering Coefficient for a node $i$}:
+\begin{itemize}
+    \item measures how connected are $i$'s neighbors to each other.
+    \item i has degree $k_i$ 
+    \item $e_i$: number of edges are between the neighbors of node $i$
+    \item Possible edges among $k_i$ neighbors of $i$'s: ${k_i \choose 2}$
+    \item Define clustering coefficient of $i$: $C_i =  \frac{e_i}{{k_i \choose 2} }= \frac{2e_i}{k_i(k_i -1 )}$. 
+    \item $C_i \in [0,1]$
+\end{itemize}
+
+\noindent \textbf{Average Clustering Coefficient}:
+Take the average over all of the $N$ nodes of the graph
+$C = \frac{1}{N} \sum_{i=1}^N C_i$
+\subsubsection{Connected Component}
+
+\noindent \textbf{Size of the largest connected component}: largest set where any two nodes can be connected via a path.
+
+\noindent To compute the size of largest connected component, we need to find connected components following the below steps via BFS:
+\begin{itemize}
+    \item Start BFS from a random node
+    \item Label the nodes BFS visited
+    \item If all nodes are visited, the network is connected
+    \item Otherwise, find an unvisited node and BFS from the node
+\end{itemize}
+
+\subsection{Random Graph Generation Models}
+\subsubsection{Erdos-Renyi Model}
+There are two variants of Erdos-Renyi Model: For an undirected graph of $n$ nodes
+\begin{itemize}
+    \item  \textit{variant 1} $G_{np}$: each edge $(u,v)$ appears \textit{i.i.d.} with probability $p$ (Similar to a Binomial distribution $Binomial(n-1,p)$) ($n-1$ since for every node, it is possible to have at most $n-1$ edges with other nodes).
+    \item   \textit{variant 2} $G_{nm}$: $m$ edges picked uniformly at random 
+\end{itemize}
+
+\noindent The network properties (section \ref{ss_21_network_properties}) for a variant 1 $G_{np}$ Erdos-Renyi Model is as following:
+\begin{itemize}
+    \item Degree distribution: by properties of $Binomial(n-1,p)$
+        \begin{itemize}
+            \item $P(k) = {n-1 \choose k} p^k (1-p)^{n-1-k}$  
+            \item By Law of Large Number, the distribution of average $P(k)$ becomes increasingly narrow as $n$ increases. We become increasingly confident that the degree of a node is in the vicinity of $k$ as $n$ grows.
+        \end{itemize} 
+    \item Clustering Coefficient:
+        \begin{itemize}
+            \item expected number of edges connecting to node $i$: $E(e_i) = \mathcal{P}(\text{a pair of neighbors of node } i \text{ is connected by an edge})$ $\times$ number of distinct pairs of neighbors of node $i$  $= p \times \frac{k_i (k_i -1)}{2}$
+            \item expected clustering coefficient of node $i$ $E(C_i) = \frac{p \times k_i(k_i - 1)}{k_i(k_i - 1)} = p = \frac{\bar{k}}{n-1}$. 
+        \end{itemize} 
+    \item Path length: O(log(n))
+        \begin{itemize}
+                \item First we define \textbf{Expansion}: {\color{red} TODO }
+
+                \item Expansion on random graphs  {\color{red} TODO }
+                \item Average shortest path: If we keep $np$ constant, even when $G_{np}$ grows very large, the nodes will still be less than 20 hops (if we consider shortest path) apart on average.
+            \end{itemize} 
+    
+    
+    \item Connected Components:
+    
+
+\end{itemize}
+
+\subsubsection{Small World Model}
+
+
+\subsubsection{Kronecker Model}
+
+\subsection{Subgraphs: Motifs and Graphlets}
+
+\subsubsection{Definition}
+
+\subsubsection{How to find motifs and graphlets}
+
+\subsection{Structural Roles}
+
+\subsubsection{How to find structural roles: RoIX}
+
+\subsubsection{Application of structural roles}
 
 \subsection{Spectral Clustering}\label{ss_21_spec_clus}
